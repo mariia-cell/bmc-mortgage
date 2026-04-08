@@ -1,4 +1,5 @@
-import { CSSProperties, useState } from 'react'
+import { useState } from 'react'
+import type { CSSProperties } from 'react'
 import { Phone, MessageCircle, Mail, Clock, ArrowRight } from 'lucide-react'
 import { D } from '../tokens'
 

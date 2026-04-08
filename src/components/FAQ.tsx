@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
-import faqIllustration from '../assets/faq-illustration.svg'
 import { D, pill } from '../tokens'
 
 // ─── Support card ──────────────────────────────────────────────────────────────
