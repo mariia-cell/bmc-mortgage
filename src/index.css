@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+
+/* ── Range slider — premium fintech style ── */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+/* Track */
+input[type='range']::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 100px;
+}
+
+input[type='range']::-moz-range-track {
+  height: 4px;
+  border-radius: 100px;
+  background: #e2e8f0;
+}
+
+/* Thumb — white jewel with blue ring */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #0065f4;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.12),
+    0 0 0 3px rgba(0, 101, 244, 0.1);
+  cursor: grab;
+  transition: box-shadow 0.15s ease, transform 0.1s ease;
+  margin-top: -8px;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+  box-shadow:
+    0 1px 6px rgba(0, 0, 0, 0.15),
+    0 0 0 5px rgba(0, 101, 244, 0.14);
+}
+
+input[type='range']:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.18),
+    0 0 0 7px rgba(0, 101, 244, 0.12);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #0065f4;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.12),
+    0 0 0 3px rgba(0, 101, 244, 0.1);
+  cursor: grab;
+  transition: box-shadow 0.15s ease;
+}
+
+input[type='range']::-moz-range-progress {
+  background: #0065f4;
+  height: 4px;
+  border-radius: 100px;
+}
+
+/* ── Hide scrollbar on tab strips ── */
+.tabs-scroll::-webkit-scrollbar { display: none; }
+
+/* ── Contact form placeholder — thin & muted ── */
+input::placeholder,
+textarea::placeholder {
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+/* ── Global micro-interactions ── */
+
+/* Primary button: scale + glow on hover, snap on click */
+.btn-primary {
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease,
+    filter 0.2s ease;
+}
+.btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 101, 244, 0.28);
+  filter: brightness(1.06);
+}
+.btn-primary:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+/* Ghost/secondary button: subtle lift */
+.btn-ghost {
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.2s ease;
+}
+.btn-ghost:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+.btn-ghost:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+/* Tab button: smooth bg transition */
+.tab-btn {
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+.tab-btn:hover {
+  transform: translateY(-1px) scale(1.02);
+}
+.tab-btn:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+/* Nav links: smooth color → brand blue */
+.nav-link {
+  transition: color 0.3s ease, opacity 0.2s ease;
+}
+.nav-link:hover {
+  color: #0065f4 !important;
+  opacity: 1;
+}
+
+/* ── FAQ: staggered entrance + hover shadow ── */
+@keyframes faqSlideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.faq-item {
+  opacity: 0;
+  animation: faqSlideUp 0.4s ease forwards;
+  cursor: pointer;
+}
+.faq-item:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.09) !important;
+}
+.faq-item:nth-child(1) { animation-delay: 0.05s; }
+.faq-item:nth-child(2) { animation-delay: 0.10s; }
+.faq-item:nth-child(3) { animation-delay: 0.15s; }
+.faq-item:nth-child(4) { animation-delay: 0.20s; }
+.faq-item:nth-child(5) { animation-delay: 0.25s; }
+.faq-item:nth-child(6) { animation-delay: 0.30s; }
+.faq-item:nth-child(7) { animation-delay: 0.35s; }
+.faq-item:nth-child(8) { animation-delay: 0.40s; }
+
+/* ── PreFooter CTA button — scale + bounce ── */
+.prefooter-btn {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+}
+.prefooter-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2),
+              0 0 0 4px rgba(255, 255, 255, 0.15);
+}
+.prefooter-btn:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+/* ── Footer nav links — smooth hover → brand blue ── */
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #6B7280;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  width: fit-content;
+}
+.footer-link:hover {
+  color: #0065f4;
+  transform: translateX(4px);
+}
+.footer-link--dark {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #334155;
+}
+.footer-link--dark:hover {
+  color: #0065f4;
+  transform: translateX(0);
+}
+
+/* ── Footer responsive ── */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 40px !important;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .footer-brand {
+    grid-column: auto;
+  }
+}
+
+/* ── Trust: tab content fade-in ── */
+@keyframes trustFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.trust-tab-enter {
+  animation: trustFadeUp 0.3s ease forwards;
+}
+
+/* ── Trust: infinite marquee ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+.marquee-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.marquee-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+}
