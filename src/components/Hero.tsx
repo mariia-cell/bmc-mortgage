@@ -222,7 +222,7 @@ export default function Hero() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               <motion.h1
                 variants={fadeUp}
-                className="text-[36px] md:text-[48px] lg:text-[62px] text-right lg:text-left"
+                className="text-[36px] md:text-[48px] lg:text-[62px] text-left"
                 style={{
                   fontFamily: 'Montserrat, system-ui, sans-serif',
                   fontWeight: 800,

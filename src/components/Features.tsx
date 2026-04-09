@@ -1,4 +1,3 @@
-import { CircleCheck } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { D, pill } from '../tokens'
 
@@ -9,12 +8,6 @@ const stagger = (delay = 0.07) => ({
 })
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
-const BULLETS = [
-  'Независимый анализ от 12+ банков',
-  'Экономия до ₪200,000 на переплатах',
-  'Полное сопровождение на русском языке',
-]
-
 const STATS = [
   { value: '500+',  label: 'семей сэкономили\nв среднем ₪143,000' },
   { value: '12',    label: 'лет опыта\nна рынке Израиля' },
@@ -43,18 +36,6 @@ export default function Features() {
       }}
     >
 
-      {/* Bullets row */}
-      <div className="flex flex-col gap-3 md:flex-row md:justify-between md:items-center pb-10 md:pb-[60px]">
-        {BULLETS.map((text) => (
-          <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <CircleCheck size={18} color={D.blue} strokeWidth={2} style={{ flexShrink: 0 }} />
-            <span style={{ fontSize: 16, fontWeight: 400, color: D.body, lineHeight: '30.6px' }}>
-              {text}
-            </span>
-          </div>
-        ))}
-      </div>
-
       {/* Main section */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 60, paddingTop: 20 }}>
 
@@ -68,12 +49,15 @@ export default function Features() {
             </span>
           </div>
 
-          <h2 style={{
-            fontFamily: 'Montserrat, system-ui, sans-serif',
-            fontWeight: 800, fontSize: 40,
-            lineHeight: '50px', letterSpacing: '-1px',
-            color: D.text, margin: 0,
-          }}>
+          <h2
+            className="text-3xl md:text-[40px]"
+            style={{
+              fontFamily: 'Montserrat, system-ui, sans-serif',
+              fontWeight: 800,
+              lineHeight: '1.25', letterSpacing: '-1px',
+              color: D.text, margin: 0,
+            }}
+          >
             Банк работает в своих интересах.<br />
             Мы — в ваших.
           </h2>
@@ -87,27 +71,30 @@ export default function Features() {
           </p>
         </div>
 
-        {/* Stats row */}
+        {/* Stats row — vertical stack on mobile, horizontal on desktop */}
         <motion.div
           variants={stagger()}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
-          style={{ maxWidth: 1000, margin: '0 auto', width: '100%', display: 'flex', justifyContent: 'space-between' }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="flex flex-col items-center gap-8 md:flex-row md:items-start md:justify-between md:gap-4 md:max-w-[1000px] md:mx-auto w-full"
         >
           {STATS.map((s) => (
             <motion.div
               key={s.value}
               variants={fadeUp}
               transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-              style={{ display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'flex-start' }}
+              className="flex flex-col items-center text-center md:items-start md:text-left gap-3"
             >
-              <span style={{
-                fontFamily: 'Inter, system-ui, sans-serif',
-                fontSize: 56, fontWeight: 600,
-                lineHeight: '36px', color: D.blue,
-                fontVariantNumeric: 'tabular-nums',
-              }}>
+              <span
+                className="text-5xl md:text-[56px]"
+                style={{
+                  fontFamily: 'Inter, system-ui, sans-serif',
+                  fontWeight: 600,
+                  lineHeight: 1, color: D.blue,
+                  fontVariantNumeric: 'tabular-nums',
+                }}
+              >
                 {s.value}
               </span>
               <span style={{
