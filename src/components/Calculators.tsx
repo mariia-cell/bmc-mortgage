@@ -173,9 +173,10 @@ export default function Calculators() {
             {/* Mobile pill-strip (< lg) */}
             <div className="relative lg:hidden">
               <div
-                className="tabs-scroll flex flex-row gap-1 p-1 w-full"
+                className="tabs-scroll flex flex-row gap-1 w-full"
                 style={{
                   background: '#f1f5f9', borderRadius: 16,
+                  padding: '3px',
                   scrollbarWidth: 'none' as const,
                 }}
               >
