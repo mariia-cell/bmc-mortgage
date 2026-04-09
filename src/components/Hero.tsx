@@ -276,57 +276,57 @@ export default function Hero() {
             className="w-full lg:flex-1 lg:min-w-0"
             style={{ position: 'relative', zIndex: 10 }}
           >
-            {/* ── Tabs — scrollable on mobile with right fade mask ── */}
+            {/* ── Tabs — scrollable with right fade mask ── */}
             <div className="relative mb-3 z-10">
-              <div className="tabs-scroll" style={{
-                background: '#f1f5f9',
-                borderRadius: 18,
-                padding: 5,
-                display: 'flex',
-                gap: 2,
-                scrollbarWidth: 'none' as const,
-              }}>
-              {TABS.map((t, i) => {
-                const active = tab === i
-                return (
-                  <button
-                    key={t.label}
-                    onClick={() => setTab(i)}
-                    className="tab-btn"
-                    style={{
-                      flex: '1 0 auto',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
-                      padding: '10px 8px',
-                      borderRadius: 13,
-                      background: active ? '#ffffff' : 'transparent',
-                      boxShadow: active
-                        ? '0 1px 4px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.06)'
-                        : 'none',
-                      border: 'none', cursor: 'pointer',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    <Home
-                      size={13}
-                      color={active ? D.blue : '#94a3b8'}
-                      strokeWidth={active ? 2 : 1.75}
-                      style={{ flexShrink: 0 }}
-                    />
-                    <span style={{
-                      fontSize: 13, fontWeight: active ? 600 : 500,
-                      color: active ? D.text : '#94a3b8',
-                      lineHeight: '18px',
-                      transition: 'color 0.2s ease',
-                    }}>
-                      {t.label}
-                    </span>
-                  </button>
-                )
-              })}
+              <div
+                className="tabs-scroll flex gap-1.5"
+                style={{
+                  background: D.white,
+                  borderRadius: 16, padding: 6,
+                  boxShadow: D.shadow,
+                  scrollbarWidth: 'none' as const,
+                }}
+              >
+                {TABS.map((t, i) => {
+                  const active = tab === i
+                  return (
+                    <button
+                      key={t.label}
+                      onClick={() => setTab(i)}
+                      className="tab-btn flex-shrink-0"
+                      style={{
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+                        padding: '10px 16px',
+                        borderRadius: 12,
+                        border: 'none', cursor: 'pointer',
+                        background: active ? D.blue : 'transparent',
+                        whiteSpace: 'nowrap',
+                        minHeight: 44,
+                      }}
+                    >
+                      <Home
+                        size={13}
+                        color={active ? '#ffffff' : D.body}
+                        strokeWidth={active ? 2 : 1.75}
+                        style={{ flexShrink: 0 }}
+                      />
+                      <span style={{
+                        fontSize: 13, fontWeight: 600,
+                        color: active ? '#ffffff' : D.body,
+                        lineHeight: '18px',
+                        transition: 'color 0.2s ease',
+                      }}>
+                        {t.label}
+                      </span>
+                    </button>
+                  )
+                })}
               </div>
-              {/* Right fade mask — mobile only */}
-              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 lg:hidden"
-                style={{ background: 'linear-gradient(to right, transparent, #f1f5f9)', borderRadius: '0 18px 18px 0' }} />
+              {/* Right fade mask */}
+              <div
+                className="pointer-events-none absolute right-0 top-0 bottom-0 w-10"
+                style={{ background: 'linear-gradient(to right, transparent, #ffffff)', borderRadius: '0 16px 16px 0' }}
+              />
             </div>
 
             {/* ── Calculator card ── */}

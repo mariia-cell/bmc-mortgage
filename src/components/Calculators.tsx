@@ -173,10 +173,10 @@ export default function Calculators() {
             {/* Mobile pill-strip (< lg) */}
             <div className="relative lg:hidden">
               <div
-                className="tabs-scroll flex flex-row gap-1 w-full"
+                className="tabs-scroll flex gap-1.5 w-full"
                 style={{
-                  background: '#f1f5f9', borderRadius: 16,
-                  padding: '3px',
+                  background: D.white, borderRadius: 16,
+                  padding: 6, boxShadow: D.shadow,
                   scrollbarWidth: 'none' as const,
                 }}
               >
@@ -186,15 +186,15 @@ export default function Calculators() {
                     <button
                       key={id}
                       onClick={() => setActiveCalc(id)}
-                      className="flex-shrink-0 snap-start whitespace-nowrap transition-all"
+                      className="tab-btn flex-shrink-0 snap-start"
                       style={{
-                        padding: '9px 16px',
+                        padding: '10px 16px',
                         borderRadius: 12,
                         border: 'none', cursor: 'pointer',
                         fontSize: 13, fontWeight: 600, lineHeight: '18px',
-                        background: active ? D.white : 'transparent',
-                        color: active ? D.blue : '#64748b',
-                        boxShadow: active ? '0 1px 4px rgba(0,0,0,0.10)' : 'none',
+                        background: active ? D.blue : 'transparent',
+                        color: active ? '#ffffff' : D.body,
+                        whiteSpace: 'nowrap', minHeight: 44,
                       }}
                     >
                       {title}
@@ -205,7 +205,7 @@ export default function Calculators() {
               {/* Right fade hint */}
               <div
                 className="pointer-events-none absolute right-0 top-0 bottom-0 w-10"
-                style={{ background: 'linear-gradient(to right, transparent, #f1f5f9)', borderRadius: '0 16px 16px 0' }}
+                style={{ background: 'linear-gradient(to right, transparent, #ffffff)', borderRadius: '0 16px 16px 0' }}
               />
             </div>
 
