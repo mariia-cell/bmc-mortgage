@@ -167,63 +167,95 @@ export default function Calculators() {
         {/* Grid: left menu (393px) + right calc (1fr) */}
         <div className="grid grid-cols-1 lg:grid-cols-[393px_1fr] gap-4 lg:gap-6 items-start">
 
-          {/* ── Left: menu panel ── */}
-          <div style={{ background: D.white, borderRadius: 30, boxShadow: D.shadow, padding: 8, position: 'relative' }}>
-            <div
-              className="tabs-scroll flex flex-row lg:flex-col gap-3 lg:gap-1 pb-3 lg:pb-0"
-              style={{ scrollbarWidth: 'none' as const }}
-            >
-              {MENU.map(({ id, title, desc, Icon }) => {
-                const active = activeCalc === id
-                return (
-                  <button
-                    key={id}
-                    onClick={() => setActiveCalc(id)}
-                    className="flex-shrink-0 w-[78vw] sm:w-[300px] lg:w-full snap-start"
-                    style={{
-                      display: 'flex', alignItems: 'center', gap: 12,
-                      padding: '12px 14px',
-                      borderRadius: 22,
-                      background: active ? D.white : 'transparent',
-                      boxShadow: active ? D.shadow : 'none',
-                      border: active ? '1px solid rgba(0,0,0,0.04)' : '1px solid transparent',
-                      cursor: 'pointer', textAlign: 'left',
-                      transition: 'background 0.15s ease, box-shadow 0.15s ease',
-                    }}
-                  >
-                    {/* Icon badge */}
-                    <div style={{
-                      width: 40, height: 40, borderRadius: 10, flexShrink: 0,
-                      background: active ? D.blueBg : '#f0f5f9',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      transition: 'background 0.15s ease',
-                    }}>
-                      <Icon size={17} color={active ? D.blue : D.body} strokeWidth={1.75} />
-                    </div>
+          {/* ── Left: menu ── */}
+          <div>
 
-                    {/* Text */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                      <span style={{
-                        fontSize: 14, fontWeight: 700,
-                        color: active ? D.blue : D.text,
-                        lineHeight: '18px',
-                        transition: 'color 0.15s ease',
-                      }}>
-                        {title}
-                      </span>
-                      <span style={{ fontSize: 12, fontWeight: 500, color: D.muted, lineHeight: '16px' }}>
-                        {desc}
-                      </span>
-                    </div>
-                  </button>
-                )
-              })}
+            {/* Mobile pill-strip (< lg) */}
+            <div className="relative lg:hidden">
+              <div
+                className="tabs-scroll flex flex-row gap-1 p-1 w-full"
+                style={{
+                  background: '#f1f5f9', borderRadius: 16,
+                  scrollbarWidth: 'none' as const,
+                }}
+              >
+                {MENU.map(({ id, title }) => {
+                  const active = activeCalc === id
+                  return (
+                    <button
+                      key={id}
+                      onClick={() => setActiveCalc(id)}
+                      className="flex-shrink-0 snap-start whitespace-nowrap transition-all"
+                      style={{
+                        padding: '9px 16px',
+                        borderRadius: 12,
+                        border: 'none', cursor: 'pointer',
+                        fontSize: 13, fontWeight: 600, lineHeight: '18px',
+                        background: active ? D.white : 'transparent',
+                        color: active ? D.blue : '#64748b',
+                        boxShadow: active ? '0 1px 4px rgba(0,0,0,0.10)' : 'none',
+                      }}
+                    >
+                      {title}
+                    </button>
+                  )
+                })}
+              </div>
+              {/* Right fade hint */}
+              <div
+                className="pointer-events-none absolute right-0 top-0 bottom-0 w-10"
+                style={{ background: 'linear-gradient(to right, transparent, #f1f5f9)', borderRadius: '0 16px 16px 0' }}
+              />
             </div>
-            {/* Right fade mask — mobile only */}
+
+            {/* Desktop card list (lg+) */}
             <div
-              className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 lg:hidden"
-              style={{ background: 'linear-gradient(to right, transparent, #ffffff)', borderRadius: '0 30px 30px 0' }}
-            />
+              className="hidden lg:block"
+              style={{ background: D.white, borderRadius: 30, boxShadow: D.shadow, padding: 8 }}
+            >
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                {MENU.map(({ id, title, desc, Icon }) => {
+                  const active = activeCalc === id
+                  return (
+                    <button
+                      key={id}
+                      onClick={() => setActiveCalc(id)}
+                      style={{
+                        display: 'flex', alignItems: 'center', gap: 12,
+                        padding: '16px 18px', borderRadius: 22, width: '100%',
+                        background: active ? D.white : 'transparent',
+                        boxShadow: active ? D.shadow : 'none',
+                        border: active ? '1px solid rgba(0,0,0,0.04)' : '1px solid transparent',
+                        cursor: 'pointer', textAlign: 'left',
+                        transition: 'background 0.15s ease, box-shadow 0.15s ease',
+                      }}
+                    >
+                      <div style={{
+                        width: 40, height: 40, borderRadius: 10, flexShrink: 0,
+                        background: active ? D.blueBg : '#f0f5f9',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        transition: 'background 0.15s ease',
+                      }}>
+                        <Icon size={17} color={active ? D.blue : D.body} strokeWidth={1.75} />
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                        <span style={{
+                          fontSize: 14, fontWeight: 700,
+                          color: active ? D.blue : D.text, lineHeight: '18px',
+                          transition: 'color 0.15s ease',
+                        }}>
+                          {title}
+                        </span>
+                        <span style={{ fontSize: 12, fontWeight: 500, color: D.muted, lineHeight: '16px' }}>
+                          {desc}
+                        </span>
+                      </div>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+
           </div>
 
           {/* ── Right: calculator card ── */}
