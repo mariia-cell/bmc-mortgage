@@ -170,7 +170,7 @@ export default function Calculators() {
           {/* ── Left: menu panel ── */}
           <div style={{ background: D.white, borderRadius: 30, boxShadow: D.shadow, padding: 8, position: 'relative' }}>
             <div
-              className="tabs-scroll flex flex-row lg:flex-col gap-3 lg:gap-1"
+              className="tabs-scroll flex flex-row lg:flex-col gap-3 lg:gap-1 pb-3 lg:pb-0"
               style={{ scrollbarWidth: 'none' as const }}
             >
               {MENU.map(({ id, title, desc, Icon }) => {
@@ -179,7 +179,7 @@ export default function Calculators() {
                   <button
                     key={id}
                     onClick={() => setActiveCalc(id)}
-                    className="min-w-[260px] lg:min-w-0"
+                    className="flex-shrink-0 w-[78vw] sm:w-[300px] lg:w-full snap-start"
                     style={{
                       display: 'flex', alignItems: 'center', gap: 12,
                       padding: '12px 14px',
@@ -187,9 +187,8 @@ export default function Calculators() {
                       background: active ? D.white : 'transparent',
                       boxShadow: active ? D.shadow : 'none',
                       border: active ? '1px solid rgba(0,0,0,0.04)' : '1px solid transparent',
-                      cursor: 'pointer', textAlign: 'left', width: '100%',
+                      cursor: 'pointer', textAlign: 'left',
                       transition: 'background 0.15s ease, box-shadow 0.15s ease',
-                      flexShrink: 0,
                     }}
                   >
                     {/* Icon badge */}
