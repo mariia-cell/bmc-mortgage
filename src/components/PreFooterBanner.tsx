@@ -44,7 +44,7 @@ export default function PreFooterBanner({ onOpenForm }: Props) {
                   color: '#ffffff', margin: 0,
                 }}
               >
-                Ваша ипотека — это<br />не цифры, а стратегия.
+                Ваша ипотека — это стратегия,<br />не цифры
               </h2>
               <p style={{
                 fontSize: 16, fontWeight: 400,
