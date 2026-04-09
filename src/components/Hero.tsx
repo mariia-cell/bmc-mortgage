@@ -185,7 +185,7 @@ export default function Hero() {
 
       {/* ── Hero ── */}
       <section
-        className="px-4 md:px-[100px] overflow-x-hidden relative max-w-[1353px] mx-auto min-h-[85vh]"
+        className="px-4 md:px-[100px] relative max-w-[1353px] mx-auto min-h-[85vh]"
       >
         {/* City illustration — desktop only, stays absolutely positioned */}
         <img
