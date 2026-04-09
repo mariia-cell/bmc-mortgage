@@ -147,12 +147,15 @@ export default function Calculators() {
             </span>
           </div>
 
-          <h2 style={{
-            fontFamily: 'Montserrat, system-ui, sans-serif',
-            fontWeight: 800, fontSize: 40,
-            lineHeight: '50px', letterSpacing: '-1px',
-            color: D.text, margin: 0,
-          }}>
+          <h2
+            className="text-3xl md:text-[40px]"
+            style={{
+              fontFamily: 'Montserrat, system-ui, sans-serif',
+              fontWeight: 800,
+              lineHeight: '1.25', letterSpacing: '-1px',
+              color: D.text, margin: 0,
+            }}
+          >
             Наши калькуляторы ипотеки
           </h2>
 
@@ -165,23 +168,28 @@ export default function Calculators() {
         <div className="grid grid-cols-1 lg:grid-cols-[393px_1fr] gap-4 lg:gap-6 items-start">
 
           {/* ── Left: menu panel ── */}
-          <div style={{ background: D.white, borderRadius: 30, boxShadow: D.shadow, padding: 8 }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div style={{ background: D.white, borderRadius: 30, boxShadow: D.shadow, padding: 8, position: 'relative' }}>
+            <div
+              className="tabs-scroll flex flex-row lg:flex-col gap-3 lg:gap-1"
+              style={{ scrollbarWidth: 'none' as const }}
+            >
               {MENU.map(({ id, title, desc, Icon }) => {
                 const active = activeCalc === id
                 return (
                   <button
                     key={id}
                     onClick={() => setActiveCalc(id)}
+                    className="min-w-[260px] lg:min-w-0"
                     style={{
                       display: 'flex', alignItems: 'center', gap: 12,
-                      padding: '16px 18px',
+                      padding: '12px 14px',
                       borderRadius: 22,
                       background: active ? D.white : 'transparent',
                       boxShadow: active ? D.shadow : 'none',
                       border: active ? '1px solid rgba(0,0,0,0.04)' : '1px solid transparent',
                       cursor: 'pointer', textAlign: 'left', width: '100%',
                       transition: 'background 0.15s ease, box-shadow 0.15s ease',
+                      flexShrink: 0,
                     }}
                   >
                     {/* Icon badge */}
@@ -212,6 +220,11 @@ export default function Calculators() {
                 )
               })}
             </div>
+            {/* Right fade mask — mobile only */}
+            <div
+              className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 lg:hidden"
+              style={{ background: 'linear-gradient(to right, transparent, #ffffff)', borderRadius: '0 30px 30px 0' }}
+            />
           </div>
 
           {/* ── Right: calculator card ── */}

@@ -319,12 +319,15 @@ function Testimonials() {
             Отзывы
           </span>
         </div>
-        <h2 style={{
-          fontFamily: 'Montserrat, system-ui, sans-serif',
-          fontWeight: 800, fontSize: 40,
-          lineHeight: '50px', letterSpacing: '-1px',
-          color: D.text, margin: 0,
-        }}>
+        <h2
+          className="text-3xl md:text-[40px]"
+          style={{
+            fontFamily: 'Montserrat, system-ui, sans-serif',
+            fontWeight: 800,
+            lineHeight: '1.25', letterSpacing: '-1px',
+            color: D.text, margin: 0,
+          }}
+        >
           Что говорят клиенты
         </h2>
         <p style={{ fontSize: 18, fontWeight: 400, lineHeight: '30.6px', color: D.body, margin: 0 }}>

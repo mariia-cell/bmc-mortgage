@@ -35,12 +35,15 @@ export default function PreFooterBanner({ onOpenForm }: Props) {
             alignSelf: 'center',
           }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <h2 style={{
-                fontFamily: 'Montserrat, system-ui, sans-serif',
-                fontWeight: 800, fontSize: 40,
-                lineHeight: '50px', letterSpacing: '-1px',
-                color: '#ffffff', margin: 0,
-              }}>
+              <h2
+                className="text-3xl md:text-[40px]"
+                style={{
+                  fontFamily: 'Montserrat, system-ui, sans-serif',
+                  fontWeight: 800,
+                  lineHeight: '1.25', letterSpacing: '-1px',
+                  color: '#ffffff', margin: 0,
+                }}
+              >
                 Ваша ипотека — это<br />не цифры, а стратегия.
               </h2>
               <p style={{

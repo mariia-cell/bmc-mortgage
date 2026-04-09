@@ -43,10 +43,10 @@ export default function Process() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 64 }}>
 
           {/* ── Heading — centered ── */}
-          <div style={{
-            display: 'flex', flexDirection: 'column', gap: 14,
-            alignItems: 'center', textAlign: 'center',
-          }}>
+          <div
+            className="items-start text-left md:items-center md:text-center"
+            style={{ display: 'flex', flexDirection: 'column', gap: 14 }}
+          >
             <div style={pill}>
               <div style={{ width: 8, height: 8, borderRadius: 4, background: D.blueDot, flexShrink: 0 }} />
               <span style={{ fontSize: 14, fontWeight: 600, color: D.blue, lineHeight: '20px' }}>
@@ -54,12 +54,15 @@ export default function Process() {
               </span>
             </div>
 
-            <h2 style={{
-              fontFamily: 'Montserrat, system-ui, sans-serif',
-              fontWeight: 800, fontSize: 40,
-              lineHeight: '50px', letterSpacing: '-1px',
-              color: D.text, margin: 0,
-            }}>
+            <h2
+              className="text-3xl md:text-[40px]"
+              style={{
+                fontFamily: 'Montserrat, system-ui, sans-serif',
+                fontWeight: 800,
+                lineHeight: '1.25', letterSpacing: '-1px',
+                color: D.text, margin: 0,
+              }}
+            >
               4 шага к вашей ипотеке
             </h2>
 
