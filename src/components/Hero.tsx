@@ -222,7 +222,7 @@ export default function Hero() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               <motion.h1
                 variants={fadeUp}
-                className="text-[36px] md:text-[48px] lg:text-[62px]"
+                className="text-[36px] md:text-[48px] lg:text-[62px] text-right lg:text-left"
                 style={{
                   fontFamily: 'Montserrat, system-ui, sans-serif',
                   fontWeight: 800,
@@ -276,18 +276,16 @@ export default function Hero() {
             className="w-full lg:flex-1 lg:min-w-0"
             style={{ position: 'relative', zIndex: 10 }}
           >
-            {/* ── Tabs — scrollable on mobile ── */}
-            <div className="tabs-scroll" style={{
-              background: '#f1f5f9',
-              borderRadius: 18,
-              padding: 5,
-              display: 'flex',
-              gap: 2,
-              marginBottom: 12,
-              position: 'relative', zIndex: 10,
-              overflowX: 'auto',
-              scrollbarWidth: 'none' as const,
-            }}>
+            {/* ── Tabs — scrollable on mobile with right fade mask ── */}
+            <div className="relative mb-3 z-10">
+              <div className="tabs-scroll" style={{
+                background: '#f1f5f9',
+                borderRadius: 18,
+                padding: 5,
+                display: 'flex',
+                gap: 2,
+                scrollbarWidth: 'none' as const,
+              }}>
               {TABS.map((t, i) => {
                 const active = tab === i
                 return (
@@ -325,6 +323,10 @@ export default function Hero() {
                   </button>
                 )
               })}
+              </div>
+              {/* Right fade mask — mobile only */}
+              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 lg:hidden"
+                style={{ background: 'linear-gradient(to right, transparent, #f1f5f9)', borderRadius: '0 18px 18px 0' }} />
             </div>
 
             {/* ── Calculator card ── */}

@@ -224,14 +224,11 @@ export default function Contact() {
               ))}
             </div>
 
-            {/* Dark CTA card — horizontal */}
-            <div style={{
-              background: '#00254b', borderRadius: 16,
-              padding: '24px 28px',
-              display: 'flex', flexDirection: 'row',
-              alignItems: 'center', justifyContent: 'space-between',
-              gap: 24,
-            }}>
+            {/* Dark CTA card — vertical on mobile, horizontal on desktop */}
+            <div
+              className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6"
+              style={{ background: '#00254b', borderRadius: 16, padding: '24px 28px' }}
+            >
               <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                 <span style={{ fontSize: 16, fontWeight: 700, color: D.white, lineHeight: '22px' }}>
                   Нужна консультация<br />прямо сейчас?
@@ -245,15 +242,16 @@ export default function Contact() {
                 </span>
               </div>
 
-              {/* WhatsApp button */}
+              {/* WhatsApp button — full width on mobile */}
               <button
                 type="button"
+                className="w-full md:w-auto flex items-center justify-center gap-2 flex-shrink-0"
                 style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 8,
                   background: '#deffe8', borderRadius: 10,
-                  padding: '10px 20px', flexShrink: 0,
+                  padding: '12px 20px',
                   border: 'none', cursor: 'pointer',
                   transition: 'filter 0.15s ease',
+                  minHeight: 48,
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.filter = 'brightness(0.95)')}
                 onMouseLeave={(e) => (e.currentTarget.style.filter = 'brightness(1)')}

@@ -137,12 +137,15 @@ function Cases() {
             Кейсы
           </span>
         </div>
-        <h2 style={{
-          fontFamily: 'Montserrat, system-ui, sans-serif',
-          fontWeight: 800, fontSize: 40,
-          lineHeight: '50px', letterSpacing: '-1px',
-          color: D.text, margin: 0,
-        }}>
+        <h2
+          className="text-3xl md:text-[40px]"
+          style={{
+            fontFamily: 'Montserrat, system-ui, sans-serif',
+            fontWeight: 800,
+            lineHeight: '1.25', letterSpacing: '-1px',
+            color: D.text, margin: 0,
+          }}
+        >
           Реальные результаты
         </h2>
         <p style={{ fontSize: 18, fontWeight: 400, lineHeight: '30.6px', color: D.body, margin: 0 }}>
@@ -150,42 +153,53 @@ function Cases() {
         </p>
       </div>
 
-      {/* Tab switcher */}
-      <div style={{
-        display: 'inline-flex', gap: 6,
-        background: D.white,
-        borderRadius: 16, padding: 6,
-        boxShadow: D.shadow,
-        width: 'fit-content',
-      }}>
-        {CASES.map(({ id, tab, Icon }) => {
-          const isActive = active === id
-          return (
-            <button
-              key={id}
-              onClick={() => switchTab(id)}
-              className="tab-btn"
-              style={{
-                display: 'flex', alignItems: 'center', gap: 8,
-                padding: '10px 20px',
-                borderRadius: 12,
-                border: 'none', cursor: 'pointer',
-                background: isActive ? D.blue : 'transparent',
-              }}
-            >
-              <Icon size={15} color={isActive ? D.white : D.body} strokeWidth={2} />
-              <span style={{
-                fontSize: 14, fontWeight: 600,
-                color: isActive ? D.white : D.body,
-                lineHeight: '20px',
-                fontFamily: 'Inter, system-ui, sans-serif',
-                transition: 'color 0.2s ease',
-              }}>
-                {tab}
-              </span>
-            </button>
-          )
-        })}
+      {/* Tab switcher — scrollable slider on mobile */}
+      <div className="relative">
+        <div
+          className="tabs-scroll flex gap-1.5 w-full lg:w-fit"
+          style={{
+            background: D.white,
+            borderRadius: 16, padding: 6,
+            boxShadow: D.shadow,
+            scrollbarWidth: 'none' as const,
+          }}
+        >
+          {CASES.map(({ id, tab, Icon }) => {
+            const isActive = active === id
+            return (
+              <button
+                key={id}
+                onClick={() => switchTab(id)}
+                className="tab-btn"
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 8,
+                  padding: '10px 20px',
+                  borderRadius: 12,
+                  border: 'none', cursor: 'pointer',
+                  background: isActive ? D.blue : 'transparent',
+                  whiteSpace: 'nowrap',
+                  minHeight: 44,
+                }}
+              >
+                <Icon size={15} color={isActive ? D.white : D.body} strokeWidth={2} />
+                <span style={{
+                  fontSize: 14, fontWeight: 600,
+                  color: isActive ? D.white : D.body,
+                  lineHeight: '20px',
+                  fontFamily: 'Inter, system-ui, sans-serif',
+                  transition: 'color 0.2s ease',
+                }}>
+                  {tab}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+        {/* Right fade mask — mobile only */}
+        <div
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 lg:hidden"
+          style={{ background: 'linear-gradient(to right, transparent, #ffffff)', borderRadius: '0 16px 16px 0' }}
+        />
       </div>
 
       {/* Case content */}

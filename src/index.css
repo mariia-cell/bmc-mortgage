@@ -80,7 +80,16 @@ input[type='range']::-moz-range-progress {
   border-radius: 100px;
 }
 
-/* ── Hide scrollbar on tab strips ── */
+/* ── Tab strips: hide scrollbar + scroll-snap ── */
+.tabs-scroll {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.tabs-scroll > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
 .tabs-scroll::-webkit-scrollbar { display: none; }
 
 /* ── Contact form placeholder — thin & muted ── */

@@ -57,12 +57,15 @@ export default function Footer() {
           <div className="footer-brand" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
             <BMCLogo />
 
-            <p style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontSize: 14, fontWeight: 400,
-              color: '#94a3b8', lineHeight: '1.6',
-              margin: 0, maxWidth: 260,
-            }}>
+            <p
+              className="text-sm w-full md:max-w-[260px]"
+              style={{
+                fontFamily: 'Inter, system-ui, sans-serif',
+                fontWeight: 400,
+                color: '#94a3b8', lineHeight: '1.6',
+                margin: 0,
+              }}
+            >
               Аналитический подход, прозрачные расчёты, персональная стратегия.
             </p>
 
@@ -70,11 +73,14 @@ export default function Footer() {
               {CONTACTS.map(({ Icon, text, color, weight }) => (
                 <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <Icon size={14} color={color} strokeWidth={1.75} style={{ flexShrink: 0 }} />
-                  <span style={{
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontSize: 13, fontWeight: weight,
-                    color, lineHeight: '20px',
-                  }}>
+                  <span
+                    className="whitespace-nowrap"
+                    style={{
+                      fontFamily: 'Inter, system-ui, sans-serif',
+                      fontSize: 13, fontWeight: weight,
+                      color, lineHeight: '20px',
+                    }}
+                  >
                     {text}
                   </span>
                 </div>
@@ -107,11 +113,10 @@ export default function Footer() {
         <div style={{ height: 1, background: '#e0e0e0' }} />
 
         {/* Bottom bar */}
-        <div style={{
-          padding: '20px 0 24px',
-          display: 'flex', alignItems: 'center',
-          justifyContent: 'space-between', gap: 24,
-        }}>
+        <div
+          className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-6"
+          style={{ padding: '20px 0 24px' }}
+        >
           <span style={{
             fontFamily: 'Montserrat, system-ui, sans-serif',
             fontSize: 13, fontWeight: 600,
@@ -120,7 +125,7 @@ export default function Footer() {
             © 2026 BMC GROUP. Все права защищены. Номер лицензии: 12345678
           </span>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+          <div className="flex flex-wrap items-center gap-4 md:gap-6">
             {['Политика конфиденциальности', 'Условия использования', 'Правовая информация'].map((label) => (
               <a key={label} href="#" className="footer-link" style={{
                 fontFamily: 'Montserrat, system-ui, sans-serif',

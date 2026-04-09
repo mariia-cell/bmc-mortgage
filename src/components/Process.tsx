@@ -88,21 +88,25 @@ export default function Process() {
                   key={step.num}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                  className="gap-5 md:gap-6"
                   style={{
-                    display: 'flex', flexDirection: 'row', gap: 20,
+                    display: 'flex', flexDirection: 'row',
                     paddingBottom: i < STEPS.length - 1 ? 40 : 0,
                     position: 'relative',
                   }}
                 >
                   {/* Number badge + connector line */}
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
-                    <div style={{
-                      width: 56, height: 56, borderRadius: 16, flexShrink: 0,
-                      background: D.blueBg,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
+                    <div
+                      className="w-11 h-11 md:w-14 md:h-14"
+                      style={{
+                        borderRadius: 16, flexShrink: 0,
+                        background: D.blueBg,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      }}
+                    >
                       <span style={{
-                        fontSize: 20, fontWeight: 600, color: D.blue, lineHeight: '30px',
+                        fontSize: 18, fontWeight: 600, color: D.blue, lineHeight: '1',
                       }}>
                         {step.num}
                       </span>
@@ -117,12 +121,15 @@ export default function Process() {
                   </div>
 
                   {/* Title + description */}
-                  <div style={{ display: 'flex', flexDirection: 'column', paddingTop: 14 }}>
-                    <span style={{
-                      fontSize: 20, fontWeight: 700,
-                      color: D.text, lineHeight: '28px',
-                      marginBottom: 8,
-                    }}>
+                  <div className="pt-2 md:pt-[14px]" style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span
+                      className="text-base md:text-xl"
+                      style={{
+                        fontWeight: 700,
+                        color: D.text, lineHeight: '28px',
+                        marginBottom: 6,
+                      }}
+                    >
                       {step.title}
                     </span>
                     <span style={{
