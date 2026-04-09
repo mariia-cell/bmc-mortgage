@@ -300,28 +300,32 @@ export default function Calculators() {
             {/* Separator */}
             <div style={{ height: 1, background: 'rgba(0,0,0,0.06)', borderRadius: 1 }} />
 
-            {/* Result block — inset surface, no elevation */}
-            <div style={{
-              background: '#f2f5f8', borderRadius: 24, padding: '24px 28px',
-              display: 'flex', flexDirection: 'column', gap: 12,
-            }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{
-                  fontSize: 12, fontWeight: 600, color: D.label,
-                  lineHeight: '16px', letterSpacing: '0.02em', textTransform: 'uppercase',
-                }}>
-                  Ежемесячный платёж
-                </span>
-                <span style={{ fontSize: 12, fontWeight: 500, color: D.muted, lineHeight: '16px' }}>
-                  Переплата: ~ {fmt(overpayment)} ₪
-                </span>
-              </div>
+            {/* Result block */}
+            <div style={{ background: '#f2f5f8', borderRadius: 24, padding: '24px 28px' }}>
+              {/* Label */}
               <span style={{
+                display: 'block',
+                fontSize: 12, fontWeight: 600, color: D.label,
+                lineHeight: '16px', letterSpacing: '0.02em', textTransform: 'uppercase',
+                whiteSpace: 'nowrap', marginBottom: 8,
+              }}>
+                Ежемесячный платёж
+              </span>
+              {/* Amount */}
+              <span style={{
+                display: 'block',
                 fontSize: 52, fontWeight: 700, color: D.text,
                 lineHeight: '58px', fontVariantNumeric: 'tabular-nums',
-                letterSpacing: '-1.5px',
+                letterSpacing: '-1.5px', marginBottom: 4,
               }}>
                 {fmt(monthly)} ₪
+              </span>
+              {/* Overpayment — below amount */}
+              <span style={{
+                display: 'block',
+                fontSize: 12, fontWeight: 500, color: D.muted, lineHeight: '18px',
+              }}>
+                Переплата: ~ {fmt(overpayment)} ₪
               </span>
             </div>
 

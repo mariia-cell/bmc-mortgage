@@ -77,17 +77,17 @@ export default function Features() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="flex flex-col items-center gap-8 md:flex-row md:items-start md:justify-between md:gap-4 md:max-w-[1000px] md:mx-auto w-full"
+          className="grid grid-cols-2 gap-6 md:flex md:flex-row md:items-start md:justify-between md:gap-4 md:max-w-[1000px] md:mx-auto w-full"
         >
           {STATS.map((s) => (
             <motion.div
               key={s.value}
               variants={fadeUp}
               transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-              className="flex flex-col items-center text-center md:items-start md:text-left gap-3"
+              className="flex flex-col items-center text-center md:items-start md:text-left gap-2 md:gap-3"
             >
               <span
-                className="text-5xl md:text-[56px]"
+                className="text-4xl md:text-[56px]"
                 style={{
                   fontFamily: 'Inter, system-ui, sans-serif',
                   fontWeight: 600,
